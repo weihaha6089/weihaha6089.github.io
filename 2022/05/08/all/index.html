@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | 派大星</title>
+  <title>复习 | 派大星</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="派大星">
-<meta property="og:type" content="website">
-<meta property="og:title" content="派大星">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="元素获取01.getElementById(“id”)获取的是元素对象本身 或 null，不是伪数组 返回：元素对象 或null ，&#x2F;&#x2F;对象使用节点操作获取 02.document.getElementsByTagName（“标签名”）返回值是伪数组， 返回：元素对象的集合 以伪数组形式存储     通过遍历 获取 getElementById(“id”)和document.getElements">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复习">
+<meta property="og:url" content="http://example.com/2022/05/08/all/index.html">
 <meta property="og:site_name" content="派大星">
-<meta property="og:description" content="派大星">
+<meta property="og:description" content="元素获取01.getElementById(“id”)获取的是元素对象本身 或 null，不是伪数组 返回：元素对象 或null ，&#x2F;&#x2F;对象使用节点操作获取 02.document.getElementsByTagName（“标签名”）返回值是伪数组， 返回：元素对象的集合 以伪数组形式存储     通过遍历 获取 getElementById(“id”)和document.getElements">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-08T13:08:31.578Z">
+<meta property="article:modified_time" content="2022-05-08T13:10:13.335Z">
 <meta property="article:author" content="派大星">
 <meta property="article:tag" content="派大星">
 <meta name="twitter:card" content="summary">
@@ -154,130 +156,308 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-all" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      复习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/08/all/" class="archive-article-date">
+
+        
+        <a href="/2022/05/08/all/" class="archive-article-date">
   	<time datetime="2022-05-08T13:08:31.578Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/08/all/">复习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="元素获取"><a href="#元素获取" class="headerlink" title="元素获取"></a>元素获取</h5><p>01.getElementById(“id”)获取的是元素对象本身 或 null，不是伪数组</p>
+<p>返回：元素对象 或null ，//对象使用节点操作获取</p>
+<p>02.document.getElementsByTagName（“标签名”）返回值是伪数组，</p>
+<p>返回：元素对象的集合 以伪数组形式存储     通过遍历 获取</p>
+<p>getElementById(“id”)和document.getElementsByTagName（“标签名”）搭配使用。</p>
+<p>因为 element.getElementsByTagName()  可以得到这个元素里面的某些标签</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>H5新增：</p>
+<p>03.document.getElementsByClassName返回值是伪数组，对象集合</p>
+<p>04.document.querySelector返回值是dom元素，第一个元素</p>
+<p>05.document.querySelectorAll() 得到的是匹配元素的伪数组，即使只能匹配一个，得到的也是伪数组，伪数的长度为1                               // 数组通过遍历 或者索引获取里面的元素。</p>
+<p>06.doucument . body    //返回body元素对象</p>
+<p><span style="color:red">07.doucument.documentElement    //返回html元素对象</span></p>
+<h5 id="自定义属性操作"><a href="#自定义属性操作" class="headerlink" title="自定义属性操作"></a>自定义属性操作</h5><p>element.getAttribute(‘属性’)   获取属性值</p>
+<p>element.setAttribute(‘属性’, ‘值’); 主要针对于自定义属性   </p>
+<p>div.removeAttribute(‘index’);移出属性</p>
+<p><span style="color:red">括弧里面加引号</span></p>
+<h5 id="表单的属性操作"><a href="#表单的属性操作" class="headerlink" title="表单的属性操作"></a>表单的属性操作</h5><p>表单元素中有一些属性如：disabled、checked、selected，元素对象的这些属性的值是布尔型。</p>
+<h5 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h5><p>元素节点    1</p>
+<p>属性节点    2</p>
+<p>文本节点    3</p>
+<p>子节点 vs 子元素节点 ===&gt;子节点可能是 元素 属性 文本</p>
+<p>元素是元素节点，是节点中的一种，但元素节点中可以包含很多的节点。</p>
+<P style="color:red">子元素节点 是  ol  ul 里面的li ,li 里面的内容也会被返回<br>大多数情况下是使用子元素或者父元素节点</P>
 
+<p>node.parentNode                   返回某一节点的最近的一个父节点，没有则返回null</p>
+<h6 id="子节点"><a href="#子节点" class="headerlink" title="子节点"></a>子节点</h6><p>parentNode.childNodes       返回所有子节点</p>
+<p>parentNode.firstChild       </p>
+<p>parentNode.lastChild</p>
+<h6 id="子元素节点"><a href="#子元素节点" class="headerlink" title="子元素节点"></a>子元素节点</h6><p>parentNode . children             返回所有的子元素节点，它只返回子元素节点（包括里面的内容），其余节点不返回 </p>
+<p>parentNode.firstElmentChild     第一个字元素节点</p>
+<p>parentNode.lastElementChild        最后一个子元素节点</p>
+<p>parentNode.children[0]                    第一个子元素节点</p>
+<p>parentNode.children[parentNode.children.length-1]     最后一个子元素节点</p>
+<h6 id="兄弟节点"><a href="#兄弟节点" class="headerlink" title="兄弟节点"></a>兄弟节点</h6><p>nextSibling                             下一个兄弟节点 包含元素节点或者 文本节点等等</p>
+<p>previousSibling                      上一个兄弟节点</p>
+<p>nextElementSibling                 下一个兄弟元素节点</p>
+<p>previousElementSibling           上一个兄弟元素节点</p>
+<h5 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h5><p>标准盒模型content部分不包含其他部分</p>
+<p>IE盒模型content部分包含了border和padding</p>
+<h5 id="盒子居中的的方法："><a href="#盒子居中的的方法：" class="headerlink" title="盒子居中的的方法："></a>盒子居中的的方法：</h5><p><strong>1、绝对定位法（个人感觉最好用）</strong></p>
+<p>2.<strong>负margin居中（传统方法）</strong></p>
+<p><strong>4、flex居中</strong></p>
+<p><strong>5、transform居中</strong></p>
+<p><strong>6、table-cell居中（最不常用</strong></p>
+<h5 id="flex弹性盒子："><a href="#flex弹性盒子：" class="headerlink" title="flex弹性盒子："></a>flex弹性盒子：</h5><h5 id="class-、className、-classList区别"><a href="#class-、className、-classList区别" class="headerlink" title="class 、className、  classList区别"></a>class 、className、  classList区别</h5><ol>
+<li><p>所有浏览器都支持className属性</p>
+</li>
+<li><p>  className属性返回值是一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E7%AC%A6%E4%B8%B2&spm=1001.2101.3001.7020">字符串</a>，内容就是HTML元素的class属性内容。classList属性返回一个包含指定元素所有样式类的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%9B%86%E5%90%88&spm=1001.2101.3001.7020">集合</a>对象。</p>
+</li>
+<li><p>​     .className的返回值就是包含元素class属性值的字符串。可以用来做判断，也可以用来给某一元素重新赋值，不过会覆盖元素原先的类名，记得把之前的类加上</p>
+</li>
+</ol>
+<p>​            .classList返回值是DOMTokenList类型集合，通过此集合可以非常便利的操作元素class属性。</p>
+<p style="color:red">通过className操作class属性，本质是对字符串的操作，比如判断class是否具有样式类"b"。
+那么需要自己写代码，将返回的字符串分解为各个样式类，然后再进行判断，相对比较麻烦。
+如果利用classList属性，那么将是非常轻松愉快的事情，使用<span style="color:red">DOM</span>TokenList集合的contains方法即可实现。
+
+</p><p>利用classList返回的集合对象，只需要一个contains方法即可。<br>集合还具有其他方法，分别如下：<br>（1）classList.add()：添加样式类。<br>（2）.item()：返回指定索引的样式类。<br>（3）.remove()：删除指定样式类。<br>（4）.toggle()：切换样式类</p>
+<p>   (5)  .contains( )   是否包含给定类</p>
+<p>​    (6)   . replace(“ select” , “newselect”)     替换类</p>
+<h5 id="setAttribute和add的区别"><a href="#setAttribute和add的区别" class="headerlink" title="setAttribute和add的区别"></a>setAttribute和add的区别</h5><ol>
+<li><p>setAttribute用于创建或改变某个新属性。</p>
+</li>
+<li><p>如果指定属性已经存在,则只设置该值并且会替换原来的值。</p>
+</li>
+<li><p>add方法是添加某个类，不会替换属性中的值，并且需要跟classList使用，因为它是classList的方法。</p>
+</li>
+</ol>
+<p>​             </p>
+<p>eg:      e.target.className == ‘down’</p>
+<h5 id="push-appendchild"><a href="#push-appendchild" class="headerlink" title="push()   appendchild()"></a>push()   appendchild()</h5><h5 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h5><h5 id="change事件"><a href="#change事件" class="headerlink" title=" change事件:"></a><span style=" color:red"> change事件:</span></h5><div style="color:red">change具有改变的意思，change事件会在原数据发生变化的时候触发。<div>
+该事件仅适用于文本域（text field），以及 textarea 和 select 元素。
+
+
+<p>注释：当用于 select 元素时，change 事件会在选择某个选项时发生。当用于 text field 或 text area 时，该事件会在元素失去焦点时发生。</p>
+<p> $(“.checkall”).change(function() {     //事件（）里面要加function来写</p>
+<h5 id="jquery判断checked的三种方法"><a href="#jquery判断checked的三种方法" class="headerlink" title="jquery判断checked的三种方法:"></a>jquery判断checked的三种方法:</h5><p>.attr(‘checked’):  //看版本1.6+返回:”checked”或”undefined” ;1.5-返回:true或false<br>.prop(‘checked’): //16+:true/false<br>.is(‘:checked’):   //所有版本:true/false//别忘记冒号哦</p>
+<h5 id="jQuery获取未选中的checkbox"><a href="#jQuery获取未选中的checkbox" class="headerlink" title="jQuery获取未选中的checkbox"></a>jQuery获取未选中的checkbox</h5><p> $(‘input[type=checkbox]’).not(“input:checked”);  </p>
+<p>eg：console.log($(“.j-checkbox”).not(“.j-checkbox:checked”))</p>
+<h5 id="jQuery获取选中的checkbox"><a href="#jQuery获取选中的checkbox" class="headerlink" title="jQuery获取选中的checkbox"></a>jQuery获取选中的checkbox</h5><p>$(‘input[type=checkbox]:checked’);</p>
+<p>eg：  console.log($(“.j-checkbox:checked”))     // 返回被选中的元素   $返回一个伪数组</p>
+<p> console.log($(“.j-checkbox:checked”).length)   //返回被选中的元素的个数  </p>
+<h5 id="jQuery中获取索引"><a href="#jQuery中获取索引" class="headerlink" title="jQuery中获取索引"></a>jQuery中获取索引</h5><p> var index = $(this).index()            //  index()  方法可以直接获取指定元素的索引</p>
+<p>DOM中用for循环  把每次的i 赋值给定义的index</p>
+<p>.parents()        //parents() 方法返回被选元素的所有祖先元素。</p>
+<p>.closest()          </p>
+<ul>
+<li>从当前元素开始</li>
+<li>沿 DOM 树向上遍历，并返回匹配所传递的表达式的第一个祖先</li>
+<li>返回包含零个或一个元素的 jQuery 对象</li>
+</ul>
+<p>.trim()</p>
+<p>.toFixed()</p>
+<pre><code>   1.`$(&quot;html&quot;)`选择`html`类型的所有元素。这就是HTML中的根元素。使用~~`$(document)`或                ~~`$(document.documentElement)`也可以做到这一点。
+</code></pre>
+<ol start="2">
+<li><p>$(document)是一个选择器，选中的是整个html所有元素的集合。</p>
+<p>$(document).scrollTop()</p>
+</li>
+<li><p> $(window).scroll()检查窗口是否正在滚动经过某个点</p>
+</li>
+</ol>
+<h5 id="window和document的区别"><a href="#window和document的区别" class="headerlink" title="[window和document的区别]"></a>[window和document的区别]</h5><p>[window对象]</p>
+<p>　　它是一个顶层对象,而不是另一个对象的属性，即浏览器的窗口。</p>
+<pre><code>  document 当前显示的文档(该属性本身也是一个对象)
+</code></pre>
+<h5 id="locaStorage"><a href="#locaStorage" class="headerlink" title="locaStorage"></a>locaStorage</h5><p>localStorage.setItem                    //存储数据  本地存储    . 设置项目</p>
+<p>本地存储：先把数据转为字符串==》存储  ==&gt;转为对象格式==》使用</p>
+<ol>
+<li>本地存储里面只能存储字符串的数据格式 把我们的数组对象转换为字符串格式 JSON.stringify()</li>
+</ol>
+<p>localStorage.setItem(“todo”, JSON.stringify(todolist));</p>
+<ol start="2">
+<li>获取本地存储的数据 我们需要把里面的字符串数据转换为 对象格式 JSON.parse()</li>
+</ol>
+<p>​    data = JSON.parse(data);  //parse  分析</p>
+<p>append() 操作的是 DOM 节点，push() 操作的是数组。</p>
+<h5 id="appendChild与append区别"><a href="#appendChild与append区别" class="headerlink" title="appendChild与append区别:"></a>appendChild与append区别:</h5><p>（1）ParentNode.append()允许追加 DOMString 对象，而 Node.appendChild() 只接受 Node 对象。</p>
+<p>  (2）ParentNode.append() 没有返回值，而 Node.appendChild() 返回追加的 Node 对象。</p>
+<p>（3）ParentNode.append() 可以追加多个节点和字符串，而 Node.appendChild() 只能追加一个节点。</p>
+<p> //splice(开始索引，删除的长度)  数组删除指定位置的元素 </p>
+<p>jQuery可以绑定多个事件放入同一个对象中，并没有被覆盖</p>
+<p>.attr() 方法设置或返回被选元素的属性值。</p>
+<h5 id="checkbox属性checked-”checked”通过js已设置，但是不勾选？？？？"><a href="#checkbox属性checked-”checked”通过js已设置，但是不勾选？？？？" class="headerlink" title="checkbox属性checked=”checked”通过js已设置，但是不勾选？？？？"></a>checkbox属性checked=”checked”通过js已设置，但是不勾选？？？？</h5><p>给input加了checked就可以了</p>
+<h5 id="媒体适配（范围大于用min-，范围小于用max）"><a href="#媒体适配（范围大于用min-，范围小于用max）" class="headerlink" title="媒体适配（范围大于用min ，范围小于用max）"></a>媒体适配（范围大于用min ，范围小于用max）</h5><p>大于900px的时候，匹配900px 到无限大</p>
+<p>@media screen and (min-width:900px)</p>
+<p>小于900px的时候，匹配0 到900px</p>
+<p>@media screen and (max-width:900px)</p>
+<h5 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h5><p>浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址，</p>
+<p>深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，</p>
+<h5 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h5><p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸</p>
+<ol>
+<li><p>em的值并不是固定的；</p>
+</li>
+<li><p>em会继承父级元素的字体大小。</p>
+</li>
+</ol>
+<h5 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h5><p>使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素</p>
+<h5 id="vw-vh"><a href="#vw-vh" class="headerlink" title="vw   vh"></a>vw   vh</h5><p>vw\vh的介绍？<br>1.什么是vw(Viewport Width)和vh（Viewport Height）？<br>    1.1 vw和vh是前端开发中的一个动态单位，是一个相对于网页视口的单位。<br>    1.2 系统会将视口的宽度和高度分为100份，1vw占用视口宽度的百分之一，1vh占用视口高度的百分之一。<br>    1.3 vw、vh和百分比不同的是，百分比永远都是以父元素为参考，而vw、vh是以视口作为参考。</p>
+<h5 id="立即执行函数之前需要加-分号"><a href="#立即执行函数之前需要加-分号" class="headerlink" title="立即执行函数之前需要加  ;  分号"></a>立即执行函数之前需要加  ;  分号</h5><h5 id="background-size：-contain-与cover的区别："><a href="#background-size：-contain-与cover的区别：" class="headerlink" title="background-size： contain 与cover的区别："></a>background-size： contain 与cover的区别：</h5><ol>
+<li>在no-repeat情况下，如果容器宽高比与图片宽高比不同，</li>
+</ol>
+<p>　cover：图片宽高比不变、铺满整个容器的宽高，而图片多出的部分则会被截掉；</p>
+<p>　contain:图片自身的宽高比不变，缩放至图片自身能完全显示出来，所以容器会有留白区域；</p>
+<p>2.在repeat情况下：cover:与上述相同；contain:容器内至少有一张完整的图，容器留白区域则平铺背景图，铺不下的再裁掉。</p>
+<p>resize 事件是在浏览器窗口大小发生变化时触发，利用该事件可以跟踪窗口大小的变化来动态调整页面的元素显示。</p>
+<p>接下来利用 resize 事件实现一个小案例：<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%9B%91%E5%90%AC&spm=1001.2101.3001.7020">监听</a>浏览器窗口变化，实时获取该窗口的宽度和高度</p>
+<p>  console.log(this)  // 某一个元素</p>
+<p>   console.log($(this))  //一个对象</p>
+<p>   console.log(this.dataset.type)    //直接看 this . type     dataset是自定义属性的获取方法</p>
+<h5 id="flex属性是由flex-grow-flex-shrink-flex-basis这三个属性的缩写"><a href="#flex属性是由flex-grow-flex-shrink-flex-basis这三个属性的缩写" class="headerlink" title="flex属性是由flex-grow, flex-shrink, flex-basis这三个属性的缩写"></a>flex属性是由flex-grow, flex-shrink, flex-basis这三个属性的缩写</h5><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flex-basis`默认值是`auto`，</span><br><span class="line">`flex-grow`默认值是`0`，</span><br><span class="line">`flex-shrink`默认值是`1</span><br></pre></td></tr></table></figure>
+
+<h5 id="判断数据类型"><a href="#判断数据类型" class="headerlink" title="判断数据类型"></a>判断数据类型</h5><p><span style="color:red"> console.log(Object.prototype.toString.call(a))</span></p>
+<p>立即执行函数</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="comment">//code</span></span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line"><span class="comment">//code</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="proto-、prototype返回的都是对象"><a href="#proto-、prototype返回的都是对象" class="headerlink" title="__proto__  、prototype返回的都是对象{}"></a><code>__proto__</code>  、<code>prototype</code>返回的都是对象{}</h5><h5 id="一般来说，公共属性定义在构造函数里面，公共方法定义在原型对象身上"><a href="#一般来说，公共属性定义在构造函数里面，公共方法定义在原型对象身上" class="headerlink" title="一般来说，公共属性定义在构造函数里面，公共方法定义在原型对象身上"></a>一般来说，公共属性定义在构造函数里面，公共方法定义在原型对象身上</h5><h5 id="new操作构造函数生成实例的过程"><a href="#new操作构造函数生成实例的过程" class="headerlink" title="new操作构造函数生成实例的过程"></a>new操作构造函数生成实例的过程</h5><ol>
+<li><p>首先, 当我们使用new操作符时, js会先创建一个空的对象</p>
+</li>
+<li><p>然后, 构造函数中的this指向该空对象</p>
+</li>
+<li><p>其次, 在构造函数中通过操作this, 来给这个空对象赋予相应的属性</p>
+</li>
+<li><p>最后, 返回这个经过处理的”空对象”(此时, 对象已经不是空的了)</p>
+<p>缺点：每创建一个实例都要开辟一个内存空间来存放同一个方法，浪费内存。</p>
+</li>
+</ol>
+<p>原型对象 只开辟一次内存空间，存放多个公共方法，new出来的实例对象都可以直接通过原型链找到 并直接使用</p>
+<p>构造函数 是每调用一次都会在内存中开辟一个新内存来存放同一个方法</p>
+<h5 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h5><p>对象是类的具体表达，类是对象的抽象表达。</p>
+</div></div>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/08/all/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2022-05-07T14:18:01.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/">赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/21/WEB-API-DAY4/" class="archive-article-date">
-  	<time datetime="2022-04-21T10:26:08.596Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/21/WEB-API-DAY4/">WEB API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/15/hello-world/" class="archive-article-date">
-  	<time datetime="2022-04-15T03:41:12.897Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/15/hello-world/">hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -300,8 +480,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
