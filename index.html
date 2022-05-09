@@ -156,14 +156,169 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-jsadvanced04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-原型必背" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/09/%E5%8E%9F%E5%9E%8B%E5%BF%85%E8%83%8C/">原型--必背</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/09/%E5%8E%9F%E5%9E%8B%E5%BF%85%E8%83%8C/" class="archive-article-date">
+  	<time datetime="2022-05-09T09:38:51.387Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-09</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h1 id="JavaScript高级第04天（查表看得懂就足够了）"><a href="#JavaScript高级第04天（查表看得懂就足够了）" class="headerlink" title="JavaScript高级第04天（查表看得懂就足够了）"></a>JavaScript高级第04天（查表看得懂就足够了）</h1><hr>
-<h1 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1 - 正则表达式"></a>1 - 正则表达式</h1><p>目标：</p>
+        <h3 id="一-new-在执行时做的4件事"><a href="#一-new-在执行时做的4件事" class="headerlink" title="一. new 在执行时做的4件事"></a>一. new 在执行时做的4件事</h3><ol>
+<li>在内存中创建一个新的空对象</li>
+<li>让this指向这个新的对象</li>
+<li>执行构造函数里面的代码，给这个新对象添加属性和方法</li>
+<li>返回这个新对象（构造函数里不需要return）</li></ol>
+        
+          <a class="article-more-a" href="/2022/05/09/%E5%8E%9F%E5%9E%8B%E5%BF%85%E8%83%8C/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/09/%E5%8E%9F%E5%9E%8B%E5%BF%85%E8%83%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-7-手写实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/09/7-%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/">手写一个new</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/09/7-%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2022-05-09T07:04:06.531Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>创建一个空的简单JavaScript对象（即{}）；</li>
+<li>为步骤1新创建的对象添加属性<code>__proto__</code>，将该属性链接至构造函数的原型对象 ；</li>
+<li>将步骤1新创建的对象作为this的上下文 ；</li>
+<li>如果该函数没有返回对象，则返回this。</li>
+</ol>
+<blockquote>
+<p>new关键词执行后总会返回一个对象, 要么是实例对象, 要么是return语句指定的对象.</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2022/05/09/7-%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/09/7-%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jsadvanced04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/08/jsadvanced04/">JavaScript高级第04天（查表看得懂就足够了）</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/08/jsadvanced04/" class="archive-article-date">
+  	<time datetime="2022-05-08T13:25:03.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1 - 正则表达式"></a>1 - 正则表达式</h1><p>目标：</p>
 <ol>
 <li>了解什么是正则表达式</li>
 <li>在JS中的应用</li>
