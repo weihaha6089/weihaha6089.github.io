@@ -156,6 +156,151 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsadvanced05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/14/jsadvanced05/">JavaScript高级第05天</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/14/jsadvanced05/" class="archive-article-date">
+  	<time datetime="2022-05-14T09:35:06.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES6javaScript高级第05天-ES6"><a href="#ES6javaScript高级第05天-ES6" class="headerlink" title="ES6javaScript高级第05天 - ES6"></a>ES6javaScript高级第05天 - ES6</h2><blockquote>
+<p>ES6 全称ECMAScript，由ECMA国际化标准化组织制定的脚本语言标准化规范</p>
+<p>ES6泛指ES2015版本及后续版本</p>
+</blockquote>
+<p>目标：</p>
+<ol>
+<li><p><strong>let、const两个新的声明变量</strong></p>
+</li>
+<li><p><strong>解构赋值</strong></p>
+</li>
+<li><p><strong>箭头函数</strong></p>
+</li>
+<li><p><strong>扩展运算符</strong></p>
+</li>
+<li><p><strong>各大实用方法</strong></p></li></ol>
+        
+          <a class="article-more-a" href="/2022/05/14/jsadvanced05/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/14/jsadvanced05/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-深拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/13/%E6%B7%B1%E6%8B%B7%E8%B4%9D/">深拷贝</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/13/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="archive-article-date">
+  	<time datetime="2022-05-13T08:45:31.666Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plaintext"><figcaption><span>深拷贝拷贝多层, 每一级别的数据都会拷贝.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> var obj = &#123;</span><br><span class="line">     id: 1,</span><br><span class="line">     name: &#x27;andy&#x27;,</span><br><span class="line">     msg: &#123;</span><br><span class="line">         age: 18</span><br><span class="line">     &#125;,</span><br><span class="line">     color: [&#x27;pink&#x27;, &#x27;red&#x27;]</span><br><span class="line"> &#125;;</span><br><span class="line"> &lt;---more---&gt;</span><br><span class="line"> var o = &#123;&#125;;</span><br><span class="line"> // 封装函数 </span><br><span class="line"> function deepCopy(newobj, oldobj) &#123;</span><br><span class="line">     for (var k in oldobj) &#123;</span><br><span class="line">         // 判断我们的属性值属于那种数据类型</span><br><span class="line">         // 1. 获取属性值  oldobj[k]</span><br><span class="line">         var item = oldobj[k];</span><br><span class="line">         // 2. 判断这个值是否是数组</span><br><span class="line">         //如果是数组，则递归，再执行一次for循环遍历。</span><br><span class="line">         if (item instanceof Array) &#123;</span><br><span class="line">             newobj[k] = [];</span><br><span class="line">             deepCopy(newobj[k], item)</span><br><span class="line">         &#125; else if (item instanceof Object) &#123;</span><br><span class="line">             // 3. 判断这个值是否是对象</span><br><span class="line">             newobj[k] = &#123;&#125;;</span><br><span class="line">             deepCopy(newobj[k], item)</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             // 4. 属于简单数据类型</span><br><span class="line">             newobj[k] = item;</span><br><span class="line">         &#125;</span><br><span class="line">              &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> deepCopy(o, obj);</span><br><span class="line"> console.log(o);  //object</span><br><span class="line">var arr = [];</span><br><span class="line"> console.log(arr instanceof Object);//true</span><br><span class="line"> o.msg.age = 20;</span><br><span class="line"> console.log(obj); //object</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<p>       </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/13/%E6%B7%B1%E6%8B%B7%E8%B4%9D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-let、const、var的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -665,7 +810,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/08/all/">复习</a>
+      <a class="article-title" href="/2022/05/08/all/">All</a>
     </h1>
   
 
@@ -699,140 +844,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/05/08/all/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/">赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2022-05-07T14:18:01.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网络上为赵丽颖晋身为Dior新代言人，为baby抱屈而打口水仗的人们依旧在评论区喋喋不休。</p>
-<p>网友不是头一次抹黑赵丽颖，也不是第一次对她评头论足。</p>
-<p>他们从来没忘记赵丽颖的中专文凭、农村出身、补刀神手的人设，以及她在时尚界那次长裙美背后却贴小花纸的“土美”事件。</p>
-<p>他们从来没想到她以一张包子脸的长相也能进军时尚界甚至可以开疆辟土，能在颜控大长腿的天下里挤得一席之地。</p>
-        
-          <a class="article-more-a" href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/07/%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WEB-API-DAY4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/21/WEB-API-DAY4/">WEB API</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/21/WEB-API-DAY4/" class="archive-article-date">
-  	<time datetime="2022-04-21T10:26:08.596Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="WEB-API"><a href="#WEB-API" class="headerlink" title="WEB API"></a>WEB API</h1><p>常用得到的键盘事件</p>
-<h3 id="1-1-onkeyup-键盘抬起时触发"><a href="#1-1-onkeyup-键盘抬起时触发" class="headerlink" title="1.1 onkeyup 键盘抬起时触发"></a>1.1 onkeyup 键盘抬起时触发</h3><h3 id="1-2代码实现"><a href="#1-2代码实现" class="headerlink" title="1.2代码实现"></a>1.2代码实现</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&#x27;键盘弹起&#x27;</span>);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/04/21/WEB-API-DAY4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/21/WEB-API-DAY4/">展开全文 >></a>
         </p>
       
 
