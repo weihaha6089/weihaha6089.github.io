@@ -6,18 +6,44 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | 派大星</title>
+  <title>Ajax基本概念=&gt;part two | 派大星</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="派大星">
-<meta property="og:type" content="website">
-<meta property="og:title" content="派大星">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="目标 能够说出form表单的常用属性 能够知道如何阻止表单的默认提交行为 能够知道如何使用jQuery快速获取表单数据 能够知道如何安装和使用模板引擎 能够知道模板引擎的实现原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax基本概念&#x3D;&gt;part two">
+<meta property="og:url" content="http://example.com/2022/05/20/09-Ajax-02/index.html">
 <meta property="og:site_name" content="派大星">
-<meta property="og:description" content="派大星">
+<meta property="og:description" content="目标 能够说出form表单的常用属性 能够知道如何阻止表单的默认提交行为 能够知道如何使用jQuery快速获取表单数据 能够知道如何安装和使用模板引擎 能够知道模板引擎的实现原理">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E5%8D%95.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%A1%A8%E5%8D%95%E7%BB%84%E6%88%90.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/target%E5%B1%9E%E6%80%A7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/enctype%E5%B1%9E%E6%80%A7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E7%9B%91%E5%90%AC%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E4%BA%8B%E4%BB%B6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E9%98%BB%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/serialize%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/serialize%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/art-template%E4%B8%8B%E8%BD%BD.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%8E%9F%E6%96%87%E8%BE%93%E5%87%BA.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%87%BA.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8%E8%AF%AD%E6%B3%95.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8UI%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/exec.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/exec%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%A4%9A%E6%AC%A1replace.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/while%E5%BE%AA%E7%8E%AF%E6%9D%A5replace.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E9%A2%84%E8%B0%83%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%B0%81%E8%A3%85template%E5%87%BD%E6%95%B0.png">
+<meta property="article:published_time" content="2022-05-20T04:31:12.355Z">
+<meta property="article:modified_time" content="2022-05-20T09:57:26.204Z">
 <meta property="article:author" content="派大星">
-<meta property="article:tag" content="派大星">
+<meta property="article:tag" content="Ajax基本概念-02">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E5%8D%95.png">
   
     <link rel="alternative" href="/atom.xml" title="派大星" type="application/atom+xml">
   
@@ -154,36 +180,285 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-09-Ajax-02" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/20/09-Ajax-02/" class="archive-article-date">
-  	<time datetime="2022-05-20T04:31:12.355Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/20/09-Ajax-02/">Ajax基本概念=&gt;part two</a>
+    <h1 class="article-title" itemprop="name">
+      Ajax基本概念=&gt;part two
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/05/20/09-Ajax-02/" class="archive-article-date">
+  	<time datetime="2022-05-20T04:31:12.355Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>能够说出form表单的常用属性</li>
+<li>能够知道如何阻止表单的默认提交行为</li>
+<li>能够知道如何使用<code>jQuery</code>快速获取表单数据</li>
+<li>能够知道如何安装和使用模板引擎</li>
+<li>能够知道模板引擎的实现原理<span id="more"></span>
+<h1 id="Form表单的基本使用"><a href="#Form表单的基本使用" class="headerlink" title="Form表单的基本使用"></a>Form表单的基本使用</h1></li>
+</ul>
+<h2 id="什么是表单"><a href="#什么是表单" class="headerlink" title="什么是表单"></a>什么是表单</h2><p>表单在网页中主要负责 <strong>数据采集功能</strong>。HTML中<code>&lt;form&gt;</code>标签，就是用于采集用户输入的信息，并通过 <code>&lt;form&gt; </code>标签的提交操作，把采集的信息提交到服务器端进行处理</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E5%8D%95.png"></p>
+<h2 id="表单的组成部分"><a href="#表单的组成部分" class="headerlink" title="表单的组成部分"></a>表单的组成部分</h2><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%A1%A8%E5%8D%95%E7%BB%84%E6%88%90.png"></p>
+<ul>
+<li>表单标签</li>
+<li>表单域：包含了文本框，密码框，隐藏域，都行文本框，复选框，单选框，下拉选择框和文件上传框等等</li>
+<li>表单按钮：通过设置<code>type</code>属性为<code>submit</code>来触发<code>form</code>表单的提交</li>
+</ul>
+<h2 id="lt-form-gt-标签的属性-⭐⭐⭐"><a href="#lt-form-gt-标签的属性-⭐⭐⭐" class="headerlink" title="&lt;form&gt; 标签的属性(⭐⭐⭐)"></a><code>&lt;form&gt;</code> 标签的属性(⭐⭐⭐)</h2><h3 id="action"><a href="#action" class="headerlink" title="action"></a><code>action</code></h3><p><code>action</code> 属性用来规定当提交表单时，<strong>向何处发送表单数据</strong>。</p>
+<p><code>action</code> 属性的值应该是后端提供的一个URL地址，这个URL地址专门负责接收表单提交过来的数据。</p>
+<p>当 <code>&lt;form&gt;</code>表单在未制定 <code>action</code> 属性值的清空下，<code>action</code>的默认值为当前页面的 <code>URL</code> 地址</p>
+<p><strong>注意:</strong> 当提交表单后，会立即跳转到 <code>action</code> 属性指定的 <code>URL</code> 地址</p>
+<h3 id="target"><a href="#target" class="headerlink" title="target"></a><code>target</code></h3><p><code>target</code> 属性用来规定 在何处打开 <code>action URL</code></p>
+<p>它的可选值有5个，默认情况下，target的值是 _self，表示在相同的框架中打开 action URL</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/target%E5%B1%9E%E6%80%A7.png"></p>
+<h3 id="method"><a href="#method" class="headerlink" title="method"></a><code>method</code></h3><p><code>method</code> 属性用来规定 <strong>以何种方式</strong> 把表单数据提交到 action URL</p>
+<p>它的可选值有两个，分别是 <code>get</code> 和 <code>post</code></p>
+<p>默认情况下，<code>method</code>的值为 <code>get</code>， 表示通过<code>URL</code>地址的形式，把表单数据提交到 <code>action URL</code></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>get 方式适合用来提交<strong>少量的</strong>，<strong>简单的</strong>数据 ( 会把数据显示在地址栏)</li>
+<li>post 方式适合用来提交<strong>大量的</strong>，<strong>复杂的</strong>，或包含<strong>文件上传</strong>的数据</li>
+</ul>
+<h3 id="enctype"><a href="#enctype" class="headerlink" title="enctype"></a><code>enctype</code></h3><p><code>enctype</code>属性用来规定在 <strong>发送表单数据之前如何对数据进行编码</strong></p>
+<p>它的可选值有三个，默认情况下，<code>enctype</code>的值为 <code>application/x-www-form-urlencoded</code>，表示在发送前编码的所有字符</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/enctype%E5%B1%9E%E6%80%A7.png"></p>
+<h2 id="表单的同步提交及缺点"><a href="#表单的同步提交及缺点" class="headerlink" title="表单的同步提交及缺点"></a>表单的同步提交及缺点</h2><h3 id="什么是表单的同步提交"><a href="#什么是表单的同步提交" class="headerlink" title="什么是表单的同步提交"></a>什么是表单的同步提交</h3><p>通过点击 submit 按钮，触发表单提交的操作，从而使页面跳转到 <code>action URL</code> 的行为，叫做表单的同步提交</p>
+<h3 id="表单同步提交的缺点"><a href="#表单同步提交的缺点" class="headerlink" title="表单同步提交的缺点"></a>表单同步提交的缺点</h3><ul>
+<li><code>&lt;form&gt;</code> 表单同步提交后，整个页面会发生跳转，<strong>跳转到 action URL 所指向的地址</strong>，用户体验很差</li>
+<li><code>&lt;form&gt;</code> 表单同步提交后，<strong>页面之前的状态和数据会丢失</strong></li>
+</ul>
+<p><strong>如何解决呢？</strong></p>
+<p><strong>表单只负责采集数据，Ajax负责将数据提交到服务器</strong></p>
+<h1 id="通过Ajax提交表单数据"><a href="#通过Ajax提交表单数据" class="headerlink" title="通过Ajax提交表单数据"></a>通过Ajax提交表单数据</h1><h2 id="监听表单提交事件"><a href="#监听表单提交事件" class="headerlink" title="监听表单提交事件"></a>监听表单提交事件</h2><p>在 <code>jQuery</code> 中，可以使用如下两种方式，监听到表单的提交事件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E7%9B%91%E5%90%AC%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E4%BA%8B%E4%BB%B6.png"></p>
+<h2 id="阻止表单默认提交行为-⭐⭐⭐"><a href="#阻止表单默认提交行为-⭐⭐⭐" class="headerlink" title="阻止表单默认提交行为(⭐⭐⭐)"></a>阻止表单默认提交行为(⭐⭐⭐)</h2><p>当监听到表单的提交事件以后，可以调用事件对象的 <code>event.preventDefault()</code> 函数，来阻止表单的提交和页面的跳转</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E9%98%BB%E6%AD%A2%E8%A1%A8%E5%8D%95%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA.png"></p>
+<h2 id="如何快速获取表单数据-⭐⭐⭐"><a href="#如何快速获取表单数据-⭐⭐⭐" class="headerlink" title="如何快速获取表单数据(⭐⭐⭐)"></a>如何快速获取表单数据(⭐⭐⭐)</h2><h3 id="serialize-函数-ˈsɪriəlaɪz-连载；使连续"><a href="#serialize-函数-ˈsɪriəlaɪz-连载；使连续" class="headerlink" title="serialize() 函数      /ˈsɪriəlaɪz/   连载；使连续"></a><code>serialize()</code> 函数      /ˈsɪriəlaɪz/   连载；使连续</h3><p><font style="color:red">  具体操作： let data = $(  ‘  #表单id  ‘  ).serialize()</font></p>
+<p>为了简化表单中数据的获取操作，<code>jQu/ˈsɪriəlaɪz/ery</code>提供了 <code>serialize()</code> 函数，语法格式如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/serialize%E5%87%BD%E6%95%B0.png"></p>
+<p><strong>好处：</strong>可以一次性获取表单的数据</p>
+<p><strong>示例代码：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/serialize%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.png"></p>
+<p><strong>注意：</strong>在使用 serialize() 函数快速获取表单数据时，<strong>必须为每个表单元素添加 name 属性</strong></p>
+<h1 id="案例-评论列表"><a href="#案例-评论列表" class="headerlink" title="案例-评论列表"></a>案例-评论列表</h1><h2 id="UI结构搭建"><a href="#UI结构搭建" class="headerlink" title="UI结构搭建"></a><code>UI</code>结构搭建</h2><p><strong>步骤</strong></p>
+<ul>
+<li>评论面板结构<ul>
+<li>创建panel （快捷键：<code>bs3-panel:primary</code>）</li>
+<li>修改title里面的标题</li>
+<li>在body 里面 创建两个输入框，加上对应的文本提示</li>
+<li>最下面加上一个 button（快捷键：<code>bs3-button:primary</code>）</li>
+</ul>
+</li>
+<li>评论列表结构<ul>
+<li>构建一个<code>list</code>列表（快捷键：<code>bs3-list-group</code>）</li>
+<li>在第一个<code>li</code>里面放两个 <code>span</code>，写入 评论时间和评论人</li>
+</ul>
+</li>
+</ul>
+<p><strong>结构代码</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">&quot;padding: 15px;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 评论面板 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel-primary&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel-heading&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;panel-title&quot;</span>&gt;</span>发表评论<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;panel-body&quot;</span> <span class="attr">id</span>=<span class="string">&quot;formAddCmt&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span>评论人：<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span>评论内容：<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">name</span>=<span class="string">&quot;content&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>发表评论<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 评论列表 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;cmt-list&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;list-group-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;badge&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #F0AD4E;&quot;</span>&gt;</span>评论时间：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;badge&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #5BC0DE;&quot;</span>&gt;</span>评论人：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      Item 1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取评论列表数据"><a href="#获取评论列表数据" class="headerlink" title="获取评论列表数据"></a>获取评论列表数据</h2><ul>
+<li>定义函数来获取评论列表数据 <code>getCommentList()</code></li>
+<li>查阅接口文档，关注请求<code>url</code>，是否需要携带参数，请求方式</li>
+<li>利用 <code>$.ajax()</code> 来进行请求</li>
+<li>在 <code>success</code> 回调函数中，判断请求数据是否成功，如果状态码不是200，提示用户</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getCommentList</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;http://www.liulongbin.top:3006/api/cmtlist&#x27;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">status</span> !== <span class="number">200</span>) <span class="keyword">return</span> <span class="title function_">alert</span>(<span class="string">&#x27;获取评论列表失败！&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">getCommentList</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="渲染评论列表"><a href="#渲染评论列表" class="headerlink" title="渲染评论列表"></a>渲染评论列表</h2><ul>
+<li>创建一个空数组（<code>rows</code>），用来存放每一个元素的<code>html</code>字符串结构 </li>
+<li>遍历服务器返回的数据，每遍历一次，拼接一个对应的<code>html</code>字符串结构，然后放入到数组中</li>
+<li>找到list容器，先清空一下里面内容，然后利用 append 添加新的数据</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getCommentList</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;http://www.liulongbin.top:3006/api/cmtlist&#x27;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">status</span> !== <span class="number">200</span>) <span class="keyword">return</span> <span class="title function_">alert</span>(<span class="string">&#x27;获取评论列表失败！&#x27;</span>)</span><br><span class="line">      <span class="keyword">var</span> rows = []</span><br><span class="line">      $.<span class="title function_">each</span>(res.<span class="property">data</span>, <span class="keyword">function</span> (<span class="params">i, item</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> str = <span class="string">&#x27;&lt;li class=&quot;list-group-item&quot;&gt;&lt;span class=&quot;badge&quot; style=&quot;background-color: #F0AD4E;&quot;&gt;评论时间：&#x27;</span> + item.<span class="property">time</span> + <span class="string">&#x27;&lt;/span&gt;&lt;span class=&quot;badge&quot; style=&quot;background-color: #5BC0DE;&quot;&gt;评论人：&#x27;</span> + item.<span class="property">username</span> + <span class="string">&#x27;&lt;/span&gt;&#x27;</span> + item.<span class="property">content</span> + <span class="string">&#x27;&lt;/li&gt;&#x27;</span></span><br><span class="line">        rows.<span class="title function_">push</span>(str)</span><br><span class="line">      &#125;)</span><br><span class="line">      $(<span class="string">&#x27;#cmt-list&#x27;</span>).<span class="title function_">empty</span>().<span class="title function_">append</span>(rows.<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="发表评论"><a href="#发表评论" class="headerlink" title="发表评论"></a>发表评论</h2><h3 id="改造form表单"><a href="#改造form表单" class="headerlink" title="改造form表单"></a>改造form表单</h3><ul>
+<li>把之前<code>panel-body</code>的标签改成 <code>form</code> 标签</li>
+<li>给每一个输入框设置 <code>name</code> 属性，<strong>name属性的值最好与接口文档定义的参数名称一致</strong></li>
+<li>注册 <code>sumbit</code> 事件，阻止表单提交的默认行为</li>
+<li>获取用户输入内容（利用 <code>serialize()</code> ）</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="string">&#x27;#formAddCmt&#x27;</span>).<span class="title function_">submit</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>()</span><br><span class="line">    <span class="keyword">var</span> data = $(<span class="variable language_">this</span>).<span class="title function_">serialize</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="完成发表功能"><a href="#完成发表功能" class="headerlink" title="完成发表功能"></a>完成发表功能</h3><ul>
+<li>查阅接口文档</li>
+<li>利用 <code>$.post()</code> 发送请求，传入数据</li>
+<li>在成功回调函数里面判断 返回的 <code>status</code> 是否是201，如果是代表成功，失败进行提示</li>
+<li>刷新页面（调用 <code>getCommentList()</code>），清空表单内容（<code>$(&#39;#formAddCmt&#39;)[0].reset()</code>）</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="string">&#x27;#formAddCmt&#x27;</span>).<span class="title function_">submit</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>()</span><br><span class="line">    <span class="keyword">var</span> data = $(<span class="variable language_">this</span>).<span class="title function_">serialize</span>()</span><br><span class="line">    $.<span class="title function_">post</span>(<span class="string">&#x27;http://www.liulongbin.top:3006/api/addcmt&#x27;</span>, data, <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">status</span> !== <span class="number">201</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">alert</span>(<span class="string">&#x27;发表评论失败！&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">getCommentList</span>()</span><br><span class="line">      $(<span class="string">&#x27;#formAddCmt&#x27;</span>)[<span class="number">0</span>].<span class="title function_">reset</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h1><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>之前在渲染<code>UI</code>结构时候，<strong>拼接字符串是比较麻烦的，而且很容易出现问题</strong></p>
+<p><strong>模板引擎</strong>，它可以根据程序员指定的 <strong>模板结构</strong> 和 <strong>数据</strong>，自动生成一个完整的HTML页面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E.png"></p>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><ul>
+<li>减少了字符串的拼接操作</li>
+<li>使代码结构更清晰</li>
+<li>使代码更易于阅读与维护</li>
+</ul>
+<h1 id="art-template模板引擎"><a href="#art-template模板引擎" class="headerlink" title="art-template模板引擎"></a>art-template模板引擎</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>art-template 是一个简约，超快的模板引擎，中文官首页：<a target="_blank" rel="noopener" href="http://aui.github.io/art-template/zh-cn/index.html">http://aui.github.io/art-template/zh-cn/index.html</a></p>
+<h2 id="安装-⭐⭐⭐"><a href="#安装-⭐⭐⭐" class="headerlink" title="安装(⭐⭐⭐)"></a>安装(⭐⭐⭐)</h2><ul>
+<li>浏览器访问  <a target="_blank" rel="noopener" href="http://aui.github.io/art-template/zh-cn/docs/installation.html">http://aui.github.io/art-template/zh-cn/docs/installation.html</a></li>
+<li>找到 <strong>安装</strong> 导航栏，找到下载链接，右键下载即可</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/art-template%E4%B8%8B%E8%BD%BD.png"></p>
+<h2 id="基本使用-⭐⭐⭐"><a href="#基本使用-⭐⭐⭐" class="headerlink" title="基本使用(⭐⭐⭐)"></a>基本使用(⭐⭐⭐)</h2><p>通过传统方式渲染的过程，我们了解到，动态去渲染<code>UI</code>的时候需要大量去拼接字符串，比较的麻烦，而且复用性也不是很好</p>
+<h3 id="art-template使用步骤"><a href="#art-template使用步骤" class="headerlink" title="art-template使用步骤"></a>art-template使用步骤</h3><p>1.导入 <code>art-template</code></p>
+<p>​        在window全局，就多了一个函数，叫做 template(‘模板id’，需要渲染的数据对象)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;./lib/template-web.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.定义数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.定义模板</p>
+<pre><code> 01.模板的 HTML 结构，必须定义到 `script` 标签中，注意：需要把type属性改成  `text/html`
+ 
+ 02.给 模板 添加一个 `id`
+ 
+ 03.模板里面如果需要使用到传入的数据，利用 &#123;&#123;&#125;&#125; 来实现，例如：&#123;&#123;name&#125;&#125;，那么就会去找 我们调            用 template() 函数 第二个参数里面对应的`name`属性的值
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/html&quot;</span> id=<span class="string">&quot;tpl-user&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;name&#125;&#125;    ------    &#123;&#123;age&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4.调用 <code>template</code> 函数</p>
+<p>​    函数的返回值就是拼接好的模板字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> htmlStr = <span class="title function_">template</span>(<span class="string">&#x27;tpl-user&#x27;</span>, data)  </span><br></pre></td></tr></table></figure>
+
+<pre><code> ::oncoming_police_car:  1 调用时 tpl-user虽然是id但不要加#号 
+</code></pre>
+<p>​    ::blue_car:  2 .data是一个对象（调用 <code>template</code> 函数时直接写res，返回来的res），模版引擎中直接使用                   data下的属性就行，不要写成data .name 等等</p>
+<p>5.渲染<code>HTML</code>结构</p>
+<p>​    最后我们需要把template返回的模板字符串设置到页面容器中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#container&#x27;</span>).<span class="title function_">html</span>(htmlStr)</span><br></pre></td></tr></table></figure>
+
+<h3 id="标准语法"><a href="#标准语法" class="headerlink" title="标准语法"></a>标准语法</h3><h4 id="什么是标准语法"><a href="#什么是标准语法" class="headerlink" title="什么是标准语法"></a>什么是标准语法</h4><p>art-template 提供了  <code>&#123;&#123;&#125;&#125;`  这种语法格式，在  `&#123;&#123;&#125;&#125;</code> 内可以进行 <strong>变量输出</strong> 或 <strong>循环数组</strong> 等操作，这种  <code>&#123;&#123;&#125;&#125;`  语法在 art-template 中被称为标准语法
+
+#### 输出
+
+![](https://cdn.jsdelivr.net/gh/weihaha6089/Images/输出.png)
+
+在 `&#123;&#123;&#125;&#125;</code> 语法中，可以进行 <strong>变量</strong> 的输出，<strong>对象属性</strong>的输出，<strong>三元表达式</strong>输出，<strong>逻辑或</strong>输出，<strong>加减乘除等表达式</strong>输出</p>
+<h4 id="原文输出"><a href="#原文输出" class="headerlink" title="原文输出"></a>原文输出</h4><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%8E%9F%E6%96%87%E8%BE%93%E5%87%BA.png"></p>
+<p>如果输出的 value 值中，包含了 HTML 标签结构，则需要使用<strong>原文输出</strong>语法，才能保证HTML标签被正常渲染</p>
+<h4 id="条件输出"><a href="#条件输出" class="headerlink" title="条件输出"></a>条件输出</h4><p>如果要实现条件输出，则可以在 <code>&#123;&#123;&#125;&#125;` 中使用 if...else if.../if 的方式，进行按需输出
+
+![](https://cdn.jsdelivr.net/gh/weihaha6089/Images/条件输出.png)
+
+#### 循环输出
+
+如果要实现循环输出，则可以在`&#123;&#123;&#125;&#125;</code> 内，通过 each 语法循环数组，当前循环的索引使用 <code>$index</code> 进行访问，当前循环项使用 <code>$value</code> 进行访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%87%BA.png"></p>
+<h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8.png"></p>
+<p>过滤器本质就是一个 <code>function</code> 函数</p>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8%E8%AF%AD%E6%B3%95.png"></p>
+<p>过滤器语法类似于 <strong>管道操作符</strong>，它的上一个<strong>输出</strong>作为下一个<strong>输入</strong></p>
+<p>定义过滤器的基本语法如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E8%BF%87%E6%BB%A4%E5%99%A8%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89.png"></p>
+<h5 id="案例-格式化时间过滤器"><a href="#案例-格式化时间过滤器" class="headerlink" title="案例-格式化时间过滤器"></a>案例-格式化时间过滤器</h5><ul>
+<li><p>定义数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">regTime</span>: <span class="keyword">new</span> <span class="title class_">Date</span>() &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义过滤器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义处理时间的过滤器</span></span><br><span class="line">template.<span class="property">defaults</span>.<span class="property">imports</span>.<span class="property">dateFormat</span> = <span class="keyword">function</span> (<span class="params">date</span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> y = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">      <span class="keyword">var</span> m = date.<span class="title function_">getMonth</span>() + <span class="number">1</span></span><br><span class="line">      <span class="keyword">var</span> d = date.<span class="title function_">getDate</span>()</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> y + <span class="string">&#x27;-&#x27;</span> + m + <span class="string">&#x27;-&#x27;</span> + d    <span class="comment">//一定要写return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>在模板引擎中使用过滤器</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/html&quot;</span> <span class="attr">id</span>=<span class="string">&quot;tpl-user&quot;</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">regTime</span> | dateFormat&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="案例-新闻列表"><a href="#案例-新闻列表" class="headerlink" title="案例-新闻列表"></a>案例-新闻列表</h1><h2 id="UI效果"><a href="#UI效果" class="headerlink" title="UI效果"></a><code>UI</code>效果</h2><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8UI%E6%95%88%E6%9E%9C.png"></p>
+<h2 id="获取新"><a href="#获取新" class="headerlink" title="获取新"></a>获取新</h2><h2 id="获取新闻列表数据"><a href="#获取新闻列表数据" class="headerlink" title="获取新闻列表数据"></a>获取新闻列表数据</h2><ul>
+<li>定义函数，获取新闻列表数据 <code>getNewsList()</code></li>
+<li>查阅接口文档，关注 请求<code>url</code>，请求方式，请求参数，响应数据</li>
+<li>利用 <code>$.get()</code> 发起请求</li>
+<li>在回调函数中，判断请求是否成功</li>
+</ul>
+<h2 id="定义新闻列表item模板"><a href="#定义新闻列表item模板" class="headerlink" title="定义新闻列表item模板"></a>定义新闻列表<code>item</code>模板</h2><ul>
+<li>创建 script 标签，更改type属性值为 <code>text/html</code>，给模板定义id</li>
+<li>找到静态页面中 item 的结构，拷贝到模板里面</li>
+</ul>
+<h2 id="编译模板渲染结构"><a href="#编译模板渲染结构" class="headerlink" title="编译模板渲染结构"></a>编译模板渲染结构</h2><ul>
+<li>在请求成功的回调里面，先对返回数据进行改造，里面返回的 <code>tags</code> 是一个字符串，我们需要分割成数组</li>
+<li>调用 <code>template()</code> 方法，传入<code>id</code>和返回的数据</li>
+<li>把函数的返回值添加到页面容器中</li>
+<li>在模板中利用 <code>each</code> 遍历列表</li>
+<li>利用 <code>$value</code> 能够拿到每一个<code>item</code>项</li>
+<li>设置图片 <code>img</code>，<strong>注意：</strong>需要拼接请求根路径</li>
+<li>设置标题 <code>title</code></li>
+<li>设置标签，注意：标签在之前改造成数组了，这里又需要进行遍历</li>
+<li>设置来源 <code>source</code></li>
+<li>设置时间，注意：时间需要格式化，利用过滤器来实现</li>
+<li>设置评论数 <code>cmtcount</code></li>
+</ul>
+<p><strong>模板代码</strong></p>
+<p>**</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义模板 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/html&quot;</span> <span class="attr">id</span>=<span class="string">&quot;tpl-news&quot;</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">   </span><span class="template-variable">&#123;&#123;<span class="name"><span class="built_in">each</span></span> data&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;news-item&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;thumb&quot;</span> <span class="attr">src</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;http://www.liulongbin.top:3006&#x27;</span> + $value.img&#125;&#125;</span><span class="language-xml"><span class="tag"><span class="string">&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right-box&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">       <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value.title</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tags&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         </span><span class="template-variable">&#123;&#123;<span class="name"><span class="built_in">each</span></span> $value.tags&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         </span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">           <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value.source</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">           <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value.time</span> | dateFormat&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">         <span class="tag">&lt;<span class="name">span</span>&gt;</span>评论数：</span><span class="template-variable">&#123;&#123;<span class="name">$value.cmtcount</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">   </span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>js</code>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 给时间补零的函数</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">10</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span> + n</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> n</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 定义格式化时间的过滤器</span></span><br><span class="line">  template.<span class="property">defaults</span>.<span class="property">imports</span>.<span class="property">dateFormat</span> = <span class="keyword">function</span> (<span class="params">dtStr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="title class_">Date</span>(dtStr)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> y = dt.<span class="title function_">getFullYear</span>()</span><br><span class="line">    <span class="keyword">var</span> m = <span class="title function_">padZero</span>(dt.<span class="title function_">getMonth</span>() + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">var</span> d = <span class="title function_">padZero</span>(dt.<span class="title function_">getDate</span>())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hh = <span class="title function_">padZero</span>(dt.<span class="title function_">getHours</span>())</span><br><span class="line">    <span class="keyword">var</span> mm = <span class="title function_">padZero</span>(dt.<span class="title function_">getMinutes</span>())</span><br><span class="line">    <span class="keyword">var</span> ss = <span class="title function_">padZero</span>(dt.<span class="title function_">getSeconds</span>())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y + <span class="string">&#x27;-&#x27;</span> + m + <span class="string">&#x27;-&#x27;</span> + d + <span class="string">&#x27; &#x27;</span> + hh + <span class="string">&#x27;:&#x27;</span> + mm + <span class="string">&#x27;:&#x27;</span> + ss</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取新闻列表的函数</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">getNewsList</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $.<span class="title function_">get</span>(<span class="string">&#x27;http://www.liulongbin.top:3006/api/news&#x27;</span>, <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">status</span> !== <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">alert</span>(<span class="string">&#x27;获取新闻列表数据失败！&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; res.<span class="property">data</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 把每一项的 tags 属性，从字符串改造成字符串的数组</span></span><br><span class="line">        res.<span class="property">data</span>[i].<span class="property">tags</span> = res.<span class="property">data</span>[i].<span class="property">tags</span>.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">      <span class="keyword">var</span> htmlStr = <span class="title function_">template</span>(<span class="string">&#x27;tpl-news&#x27;</span>, res)</span><br><span class="line">      $(<span class="string">&#x27;#news-list&#x27;</span>).<span class="title function_">html</span>(htmlStr)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">getNewsList</span>()</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="模板引擎的实现原理-⭐⭐"><a href="#模板引擎的实现原理-⭐⭐" class="headerlink" title="模板引擎的实现原理(⭐⭐)"></a>模板引擎的实现原理(⭐⭐)</h1><p>正则与字符串操作</p>
+<h3 id="exec函数"><a href="#exec函数" class="headerlink" title="exec函数"></a>exec函数</h3><p><code>exec()</code> 函数用于 <strong>检索字符串</strong> 中的正在表达式的匹配</p>
+<p>如果字符串中又匹配的值，<strong>则返回该匹配值</strong>，<u>否则返回 <strong>null</strong></u></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/exec.png"></p>
+<p>示例代码如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/exec%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.png"></p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>正则表达式中 （） 包起来的内容表示一个分组，可以通过分组来 <strong>提取自己想要的内容</strong>，示例代码如下</p>
+<p>  ::cat:  （   /  /  双斜杠里面的所有内容都是正则表达式，都是匹配格式的一部分，包括 <code>&#123;&#123;&#125;&#125;` 模版引擎       )
+
+![](https://cdn.jsdelivr.net/gh/weihaha6089/Images/分组.png)
+
+### 字符串的 replace 函数
+
+replace() 函数用于在字符串中 用一些字符 替换 另一些字符的
+
+![](https://cdn.jsdelivr.net/gh/weihaha6089/Images/字符串replace.png)
+
+示例代码：
+
+![](https://cdn.jsdelivr.net/gh/weihaha6089/Images/字符串replace代码.png)
+
+- patternResult[0]  是我们 正则表达式匹配到的值  `&#123;&#123;name&#125;&#125;</code>  包含花括号</p>
+<ul>
+<li>patternResult[1] 是我们用()分组得到的值   name</li>
+<li>正则表达式里面不要轻易加空格</li>
+</ul>
+<h4 id="多次replace"><a href="#多次replace" class="headerlink" title="多次replace"></a>多次replace</h4><p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%A4%9A%E6%AC%A1replace.png"></p>
+<h4 id="使用循环来replace"><a href="#使用循环来replace" class="headerlink" title="使用循环来replace"></a>使用循环来replace</h4><p>因为用户输入的字符串长度不确定，我们replace次数不确定，所以我们可以利用while循环来进行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/while%E5%BE%AA%E7%8E%AF%E6%9D%A5replace.png"></p>
+<h4 id="替换成真实内容"><a href="#替换成真实内容" class="headerlink" title="替换成真实内容"></a>替换成真实内容</h4><h2 id="实现简易的模板引擎"><a href="#实现简易的模板引擎" class="headerlink" title="实现简易的模板引擎"></a>实现简易的模板引擎</h2><ul>
+<li><p>定义模板结构</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84.png"></p>
+</li>
+<li><p>预调用模板引擎</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E9%A2%84%E8%B0%83%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E.png"></p>
+</li>
+<li><p>封装 template 函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weihaha6089/Images/%E5%B0%81%E8%A3%85template%E5%87%BD%E6%95%B0.png"></p>
+</li>
+<li><p>导入并使用自定义的模板引擎</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,312 +470,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/20/09-Ajax-02/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/20/04%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="archive-article-date">
-  	<time datetime="2022-05-19T16:39:32.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/20/04%E6%B7%B1%E6%8B%B7%E8%B4%9D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深拷贝</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/20/04%E6%B7%B1%E6%8B%B7%E8%B4%9D/">深拷贝</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">深拷贝</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/19/02-js%E9%AB%98%E7%BA%A7%E5%BF%85%E8%83%8C/" class="archive-article-date">
-  	<time datetime="2022-05-19T15:52:34.679Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/19/02-js%E9%AB%98%E7%BA%A7%E5%BF%85%E8%83%8C/">js高级必背</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">js高级必背</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/19/08-ajax-01/" class="archive-article-date">
-  	<time datetime="2022-05-19T15:10:17.737Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/19/08-ajax-01/">Ajax基本概念=&gt;part one</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ajax基本概念-01</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/11/07-let%E3%80%81const%E3%80%81var%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2022-05-11T10:56:28.875Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/11/07-let%E3%80%81const%E3%80%81var%E7%9A%84%E5%8C%BA%E5%88%AB/">let、const、var的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">let、const、var的区别</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/09/03-%E6%89%8B%E5%86%99new%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2022-05-09T07:04:06.531Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/09/03-%E6%89%8B%E5%86%99new%E5%AE%9E%E7%8E%B0/">手写一个new</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">手写一个new</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/08/05-%E8%AE%B0%E5%BF%86%E7%A2%8E%E7%89%87/" class="archive-article-date">
-  	<time datetime="2022-05-08T13:08:31.578Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/08/05-%E8%AE%B0%E5%BF%86%E7%A2%8E%E7%89%87/">记忆碎片</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">记忆碎片</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/07/01-%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2022-05-07T14:18:01.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/07/01-%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/">赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">赵丽颖</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/15/06-hello-world/" class="archive-article-date">
-  	<time datetime="2022-04-15T03:41:12.897Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/15/06-hello-world/">hexo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -523,8 +592,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
