@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-20T10:03:13.213Z</updated>
+  <updated>2022-05-23T12:55:24.293Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js基础4</title>
+    <link href="http://example.com/2022/05/23/10-js%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/2022/05/23/10-js%E5%9F%BA%E7%A1%80/</id>
+    <published>2022-05-23T12:44:07.025Z</published>
+    <updated>2022-05-23T12:55:24.293Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>01.JS 中创建数组有两种方式：</strong></p><p> 01.利用  new 创建数组<br>​    var arr = new Array();     // 创建一个新的空数组</p><p>​ 02.利用数组字面量创建数组<br>​        var  数组名 = []；</p><span id="more"></span><h5 id="02-函数："><a href="#02-函数：" class="headerlink" title="02.函数："></a>02.函数：</h5><ul><li><p>就是<span style="color:red;"><strong>封装了一段可被重复调用执行的代码块</strong></span>。通过<span style="color:red;"><strong>函数</strong></span>可以<span style="color:red;"><strong>实现大量代码的重复使用</strong></span>，提高代码利用    率。  </p></li><li><p>封装是什么意思？就是把一个或者多个功能组合在一个函数里</p></li></ul><h5 id="03-return-语句"><a href="#03-return-语句" class="headerlink" title="03.return 语句"></a>03.return 语句</h5><ul><li> 在使用 return 语句时，函数会停止执行，并返回指定的值</li><li> 如果函数没有 return ，返回的值是 undefined</li></ul><h5 id="04-break-continue-return-的区别"><a href="#04-break-continue-return-的区别" class="headerlink" title="04.break ,continue ,return 的区别"></a>04.break ,continue ,return 的区别</h5><ul><li>break ：结束当前的循环体（如 for、while）</li><li>continue ：跳出本次循环，继续执行下次循环（如 for、while）</li><li>return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</li></ul><h5 id="05-arguments的使用"><a href="#05-arguments的使用" class="headerlink" title="05.arguments的使用"></a>05.arguments的使用</h5><p>当不确定有多少个参数传递的时候，可以用 <span style="color:red;">arguments </span>来获取。在 JavaScript 中，arguments实际上它是当前函数的一个<span style="color:red;">内置对象</span>。所有函数都内置了一个 arguments 对象，arguments 对象中存储了<span style="color:red;">传递的所有实参</span>。</p><p><span style="color:red;"><strong>arguments展示形式是一个伪数组</strong></span>，因此可以进行遍历。</p><p><strong>伪数组</strong>具有以下特点：</p><ul><li><p>具有 length 属性</p></li><li><p>按索引方式储存数据</p></li><li><p>不具有数组的 push , pop 等方法</p><p>注意：<span style="color:red;"><strong>在函数内部使用该对象</strong></span>，用此对象获取函数调用时传的实参。</p></li></ul><h5 id="06-函数的两种声明方式"><a href="#06-函数的两种声明方式" class="headerlink" title="06.函数的两种声明方式"></a>06.函数的两种声明方式</h5><p>自定义函数方式(命名函数)</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 声明定义方式</span><br><span class="line">function fn() &#123;...&#125;</span><br><span class="line">// 调用  </span><br><span class="line">fn();  </span><br></pre></td></tr></table></figure><p>函数表达式方式(匿名函数）</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 这是函数表达式写法，匿名函数后面跟分号结束</span><br><span class="line">var fn = function()&#123;...&#125;；</span><br><span class="line">// 调用的方式，函数调用必须写到函数体下面</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;01.JS 中创建数组有两种方式：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt; 01.利用  new 创建数组&lt;br&gt;​    var arr = new Array();     // 创建一个新的空数组&lt;/p&gt;
+&lt;p&gt;​ 02.利用数组字面量创建数组&lt;br&gt;​        var  数组名 = []；&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="js基础4" scheme="http://example.com/tags/js%E5%9F%BA%E7%A1%804/"/>
+    
+  </entry>
   
   <entry>
     <title>Ajax基本概念=&gt;part two</title>
