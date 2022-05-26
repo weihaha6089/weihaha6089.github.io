@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/5 | 派大星</title>
+  <title>ajax-04 | 派大星</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="派大星">
-<meta property="og:type" content="website">
-<meta property="og:title" content="派大星">
-<meta property="og:url" content="http://example.com/archives/2022/05/page/2/index.html">
+  <meta name="description" content="目标 能够知道什么是同源策略和跨域 能够知道什么是JSONP 能够说出JSONP的实现原理 能够知道防抖和节流的概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax-04">
+<meta property="og:url" content="http://example.com/2022/05/26/15-ajax-04/index.html">
 <meta property="og:site_name" content="派大星">
-<meta property="og:description" content="派大星">
+<meta property="og:description" content="目标 能够知道什么是同源策略和跨域 能够知道什么是JSONP 能够说出JSONP的实现原理 能够知道防抖和节流的概念">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/Ui4hbVkf5XYGxL1.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/nb6IHQ7CFuTWkcR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/kEFcVOHlWnqJYDb.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/EVGaOcHu98ixPdF.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/1q9MkmNPKHrS4Du.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/26/NL1StwYzvW2VIKs.png">
+<meta property="article:published_time" content="2022-05-26T11:41:44.727Z">
+<meta property="article:modified_time" content="2022-05-26T11:44:39.841Z">
 <meta property="article:author" content="派大星">
-<meta property="article:tag" content="派大星">
+<meta property="article:tag" content="ajax-04">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/26/Ui4hbVkf5XYGxL1.png">
   
     <link rel="alternative" href="/atom.xml" title="派大星" type="application/atom+xml">
   
@@ -155,215 +164,303 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-15-ajax-04" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ajax-04
+    </h1>
+  
+
+        
+        <a href="/2022/05/26/15-ajax-04/" class="archive-article-date">
+  	<time datetime="2022-05-26T11:41:44.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>能够知道什么是同源策略和跨域</li>
+<li>能够知道什么是<code>JSONP</code></li>
+<li>能够说出<code>JSONP</code>的实现原理</li>
+<li>能够知道防抖和节流的概念<span id="more"></span>
+<h1 id="同源策略-⭐⭐⭐"><a href="#同源策略-⭐⭐⭐" class="headerlink" title="同源策略(⭐⭐⭐)"></a>同源策略(⭐⭐⭐)</h1></li>
+</ul>
+<h2 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源"></a>什么是同源</h2><p>如果两个页面的<strong>协议，域名和端口</strong>都相同，则两个页面具有<strong>相同的源</strong>。</p>
+<p>例如，下表给出了相对于 <a target="_blank" rel="noopener" href="http://www.test.com/index.html">http://www.test.com/index.html</a> 页面的同源检测：</p>
+<p><img src="https://s2.loli.net/2022/05/26/Ui4hbVkf5XYGxL1.png"></p>
+<h2 id="什么是同源策略"><a href="#什么是同源策略" class="headerlink" title="什么是同源策略"></a>什么是同源策略</h2><p><strong>同源策略</strong>（英文全称 Same origin policy）是<strong>浏览器</strong>提供的一个<strong>安全功能</strong></p>
+<p><strong><code>MDN</code> 官方给定的概念</strong>：同源策略<u>限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互</u>。这</p>
+<p>是一个用于隔离潜在恶意文件的重要安全机制</p>
+<p>通俗的理解：浏览器规定，A 网站的 JavaScript，不允许和非同源的网站 C 之间，进行资源的交互，例如：</p>
+<p>① 无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB</p>
+<p>② 无法接触非同源网页的 DOM</p>
+<p>③ 无法向非同源地址发送 Ajax 请求</p>
+<p>//获取 - 控制 - 允许  -  起源</p>
+<p>Access-Control-Allow-Origin：*            //后端处理 允许所有域名的脚本访问本资源</p>
+<p>Access-Control-Allow-Origin：网址      //允许特定的域名访问</p>
+<h1 id="跨域-⭐⭐⭐"><a href="#跨域-⭐⭐⭐" class="headerlink" title="跨域(⭐⭐⭐)"></a>跨域(⭐⭐⭐)</h1><h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p><strong>同源</strong>指的是两个 URL 的协议、域名、端口一致，反之，则是<strong>跨域</strong></p>
+<p>出现跨域的根本原因：<strong>浏览器的同源策略</strong>不允许非同源的 URL 之间进行资源的交互</p>
+<p>网页：<code>http://www.test.com/index.html</code></p>
+<p>接口：<code>http://www.api.com/userlist</code></p>
+<h2 id="浏览器对跨域请求的拦截"><a href="#浏览器对跨域请求的拦截" class="headerlink" title="浏览器对跨域请求的拦截"></a>浏览器对跨域请求的拦截</h2><p><img src="https://s2.loli.net/2022/05/26/nb6IHQ7CFuTWkcR.png"></p>
+<p><strong>注意：</strong>浏览器允许发起跨域请求，但是，跨域请求回来的数据，会被浏览器拦截，无法被页面获取到！</p>
+<h2 id="如何实现跨域数据请求"><a href="#如何实现跨域数据请求" class="headerlink" title="如何实现跨域数据请求"></a>如何实现跨域数据请求</h2><p>现如今，实现跨域数据请求，最主要的两种解决方案，分别是 <code>JSONP</code> 和 <code>CORS</code>。</p>
+<p><strong><code>JSONP</code>：</strong>出现的早，兼容性好（兼容低版本IE）。是前端程序员为了解决跨域问题，被迫想出来的一种临时解决方案。<strong>缺点是只支持 <code>GET</code> 请求，不支持 <code>POST</code> 请求。</strong></p>
+<p><strong><code>CORS</code>：</strong>出现的较晚，它是 <code>W3C</code> 标准，属于跨域 <code>Ajax</code> 请求的根本解决方案。支持 <code>GET</code> 和 <code>POST</code> 请求。<strong>缺点</strong>是不兼容某些低版本的浏览器</p>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h1><h2 id="什么是JSONP-⭐⭐⭐"><a href="#什么是JSONP-⭐⭐⭐" class="headerlink" title="什么是JSONP(⭐⭐⭐)"></a>什么是<code>JSONP</code>(⭐⭐⭐)</h2><p><code>JSONP</code> (<code>JSON with Padding</code>) 是 <code>JSON</code> 的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。</p>
+<h2 id="JSONP的实现原理-⭐⭐⭐"><a href="#JSONP的实现原理-⭐⭐⭐" class="headerlink" title="JSONP的实现原理(⭐⭐⭐)"></a><code>JSONP</code>的实现原理(⭐⭐⭐)</h2><p>由于浏览器同源策略的限制，网页中无法通过 Ajax 请求非同源的接口数据。但是 <code>&lt;script&gt;</code> 标签不受浏览器同</p>
+<p>源策略的影响，可以通过 <code>src</code> 属性，请求非同源的 <code>js</code> 脚本。</p>
+<p>因此，<code>JSONP</code> 的实现原理，<strong>就是通过 <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性，请求跨域的数据接口，并通过函数调用的形式，接收跨域接口响应回来的数据</strong></p>
+<h2 id="自己实现一个简单的JSONP"><a href="#自己实现一个简单的JSONP" class="headerlink" title="自己实现一个简单的JSONP"></a>自己实现一个简单的<code>JSONP</code></h2><p>定义一个<code>success</code>回调函数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">success</span>(<span class="params">data</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;获取到了data数据：&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>&lt;script&gt;</code> 标签，请求接口数据：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://ajax.frontend.itheima.net:3006/api/jsonp?callback=success&amp;name=zs&amp;a</span></span></span><br><span class="line"><span class="string"><span class="tag">ge=20&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSONP的缺点"><a href="#JSONP的缺点" class="headerlink" title="JSONP的缺点"></a><code>JSONP</code>的缺点</h2><p>由于 <code>JSONP</code> 是通过 <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性，来实现跨域数据获取的，所以，<code>JSONP</code> 只支持 <code>GET</code> 数据请求，不支持 POST 请求。</p>
+<p><strong>注意：</strong> <strong><code>JSONP</code> 和 Ajax 之间没有任何关系</strong>，不能把 <code>JSONP</code> 请求数据的方式叫做 Ajax，因为 <code>JSONP</code> 没有用到</p>
+<p><code>XMLHttpRequest</code> 这个对象</p>
+<h2 id="jQuery中的JSONP"><a href="#jQuery中的JSONP" class="headerlink" title="jQuery中的JSONP"></a><code>jQuery</code>中的<code>JSONP</code></h2><p><code>jQuery</code> 提供的 <code>$.ajax()</code> 函数，除了可以发起真正的 <code>Ajax</code> 数据请求之外，还能够发起 <code>JSONP</code> 数据请求，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">     <span class="attr">url</span>: <span class="string">&#x27;http://ajax.frontend.itheima.net:3006/api/jsonp?name=zs&amp;age=20&#x27;</span>,</span><br><span class="line">     <span class="comment">// 如果要使用 $.ajax() 发起 JSONP 请求，必须指定 datatype 为 jsonp</span></span><br><span class="line">     <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,       <span class="comment">//发起请求类型只能是get请求</span></span><br><span class="line">     <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，使用 <code>jQuery</code> 发起 <code>JSONP</code> 请求，会自动携带一个 c<code>allback=jQueryxxx</code> 的参数，<code>jQueryxxx</code> 是随机生成的一个回调函数名称</p>
+<h3 id="自定义参数及回调函数名称"><a href="#自定义参数及回调函数名称" class="headerlink" title="自定义参数及回调函数名称"></a>自定义参数及回调函数名称</h3><p>在使用 <code>jQuery</code> 发起 <code>JSONP</code> 请求时，如果想要自定义 <code>JSONP</code> 的<strong>参数</strong>以及<strong>回调函数名称</strong>，可以通过如下两个参数来指定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">     <span class="attr">url</span>: <span class="string">&#x27;http://ajax.frontend.itheima.net:3006/api/jsonp?name=zs&amp;age=20&#x27;</span>,</span><br><span class="line">     <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">     <span class="comment">// 发送到服务端的参数名称，默认值为 callback</span></span><br><span class="line">     <span class="attr">jsonp</span>: <span class="string">&#x27;callback&#x27;</span>,</span><br><span class="line">     <span class="comment">// 自定义的回调函数名称，默认值为 jQueryxxx 格式</span></span><br><span class="line">     <span class="attr">jsonpCallback</span>: <span class="string">&#x27;abc&#x27;</span>,</span><br><span class="line">     <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="jQuery中JSONP的实现过程"><a href="#jQuery中JSONP的实现过程" class="headerlink" title="jQuery中JSONP的实现过程"></a><code>jQuery</code>中<code>JSONP</code>的实现过程</h3><p><code>jQuery</code> 中的 <code>JSONP</code>，也是通过 <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性实现跨域数据访问的，只不过，<code>jQuery</code> 采用的是<strong>动态创建和移除标签</strong>的方式，来发起 <code>JSONP</code> 数据请求。</p>
+<ul>
+<li><p>在发起 <code>JSONP</code> 请求的时候，动态向 <code>&lt;header&gt;</code> 中 append 一个 <code>&lt;script&gt;</code> 标签；</p>
+</li>
+<li><p>在 <code>JSONP</code> 请求成功以后，动态从 <code>&lt;header&gt;</code> 中移除刚才 <code>append</code> 进去的 <code>&lt;script&gt;</code> 标签；</p>
+</li>
+</ul>
+<h1 id="案例-–-淘宝搜索"><a href="#案例-–-淘宝搜索" class="headerlink" title="案例 – 淘宝搜索"></a><strong>案例</strong> <strong>–</strong> 淘宝搜索</h1><h2 id="要实现的UI效果"><a href="#要实现的UI效果" class="headerlink" title="要实现的UI效果"></a>要实现的<code>UI</code>效果</h2><p><img src="https://s2.loli.net/2022/05/26/kEFcVOHlWnqJYDb.png"></p>
+<h2 id="获取用户输入的搜索关键词"><a href="#获取用户输入的搜索关键词" class="headerlink" title="获取用户输入的搜索关键词"></a>获取用户输入的搜索关键词</h2><p>为了获取到用户每次按下键盘输入的内容，需要监听输入框的 <code>keyup</code> 事件，示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听文本框的 keyup 事件</span></span><br><span class="line">$(<span class="string">&#x27;#ipt&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// 获取用户输入的内容</span></span><br><span class="line">     <span class="keyword">var</span> keywords = $(<span class="variable language_">this</span>).<span class="title function_">val</span>().<span class="title function_">trim</span>()</span><br><span class="line">     <span class="comment">// 判断用户输入的内容是否为空</span></span><br><span class="line">     <span class="keyword">if</span> (keywords.<span class="property">length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// TODO：获取搜索建议列表</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="封装getSuggestList函数"><a href="#封装getSuggestList函数" class="headerlink" title="封装getSuggestList函数"></a>封装<code>getSuggestList</code>函数</h2><p>将获取搜索建议列表的代码，封装到 <code>getSuggestList</code> 函数中，示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getSuggestList</span>(<span class="params">kw</span>) &#123;</span><br><span class="line">     $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">     <span class="comment">// 指定请求的 URL 地址，其中，q 是用户输入的关键字</span></span><br><span class="line">     <span class="attr">url</span>: <span class="string">&#x27;https://suggest.taobao.com/sug?q=&#x27;</span> + kw,</span><br><span class="line">     <span class="comment">// 指定要发起的是 JSONP 请求</span></span><br><span class="line">     <span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">     <span class="comment">// 成功的回调函数</span></span><br><span class="line">     <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params">res</span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(res) &#125;</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="渲染建议列表的UI结构"><a href="#渲染建议列表的UI结构" class="headerlink" title="渲染建议列表的UI结构"></a>渲染建议列表的<code>UI</code>结构</h2><h3 id="定义搜索建议列表"><a href="#定义搜索建议列表" class="headerlink" title="定义搜索建议列表"></a>定义搜索建议列表</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- tab 栏区域 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tabs&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索区域 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;search-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索建议列表 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;suggest-list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="定义模板结构"><a href="#定义模板结构" class="headerlink" title="定义模板结构"></a>定义模板结构</h3><ul>
+<li>创建<code>script</code>标签</li>
+<li>设置<code>type</code>属性为 <code>text/html</code> 设置模板<code>id</code></li>
+<li>利用 <code>each</code> 遍历结构</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 模板结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/html&quot;</span> <span class="attr">id</span>=<span class="string">&quot;tpl-suggestList&quot;</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     </span><span class="template-variable">&#123;&#123;<span class="name"><span class="built_in">each</span></span> result&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;suggest-item&quot;</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value</span>[0]&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">     </span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="定义渲染模板结构的函数"><a href="#定义渲染模板结构的函数" class="headerlink" title="定义渲染模板结构的函数"></a>定义渲染模板结构的函数</h3><ul>
+<li>定义函数，接收一个参数，就是服务器返回的数据</li>
+<li>判断返回的数据长度是否大于0</li>
+<li>如果没有，将页面的列表清空，并且进行隐藏</li>
+<li>如果有数据，调用模板的 <code>template</code> 函数，传入<code>id</code>和数据</li>
+<li>返回渲染好的<code>html</code>字符串，然后放入容器中</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 渲染建议列表</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">renderSuggestList</span>(<span class="params">res</span>) &#123;</span><br><span class="line">     <span class="comment">// 如果没有需要渲染的数据，则直接 return</span></span><br><span class="line">     <span class="keyword">if</span> (res.<span class="property">result</span>.<span class="property">length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="keyword">return</span> $(<span class="string">&#x27;#suggest-list&#x27;</span>).<span class="title function_">empty</span>().<span class="title function_">hide</span>()</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 渲染模板结构</span></span><br><span class="line">     <span class="keyword">var</span> htmlStr = <span class="title function_">template</span>(<span class="string">&#x27;tpl-suggestList&#x27;</span>, res)</span><br><span class="line">     $(<span class="string">&#x27;#suggest-list&#x27;</span>).<span class="title function_">html</span>(htmlStr).<span class="title function_">show</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="搜索关键词为空时隐藏搜索建议列表"><a href="#搜索关键词为空时隐藏搜索建议列表" class="headerlink" title="搜索关键词为空时隐藏搜索建议列表"></a>搜索关键词为空时隐藏搜索建议列表</h2><ul>
+<li>注册<code>keyup</code>事件</li>
+<li>判断输入框的内容是否为空</li>
+<li>如果为空隐藏列表</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#ipt&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// 获取用户输入的内容</span></span><br><span class="line">     <span class="keyword">var</span> keywords = $(<span class="variable language_">this</span>).<span class="title function_">val</span>().<span class="title function_">trim</span>()</span><br><span class="line">     <span class="comment">// 判断用户输入的内容是否为空</span></span><br><span class="line">     <span class="keyword">if</span> (keywords.<span class="property">length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="comment">// 如果关键词为空，则清空后隐藏搜索建议列表</span></span><br><span class="line">     <span class="keyword">return</span> $(<span class="string">&#x27;#suggest-list&#x27;</span>).<span class="title function_">empty</span>().<span class="title function_">hide</span>()</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="title function_">getSuggestList</span>(keywords)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="防抖-amp-节流"><a href="#防抖-amp-节流" class="headerlink" title="防抖&amp;节流"></a>防抖&amp;节流</h1><ul>
+<li>防抖: n 秒后在执行该事件，若在 n 秒内被重复触发，则重新计时</li>
+<li>节流: n 秒内只运行一次，若在 n 秒内重复触发，只有一次生效</li>
+</ul>
+<h2 id="输入框防抖"><a href="#输入框防抖" class="headerlink" title="输入框防抖"></a>输入框防抖</h2><h3 id="什么是防抖-⭐⭐⭐"><a href="#什么是防抖-⭐⭐⭐" class="headerlink" title="什么是防抖(⭐⭐⭐)"></a>什么是防抖(⭐⭐⭐)</h3><p><strong>防抖策略</strong>（<code>debounce</code>）是<u>当事件被触发后，延迟 <code>n</code> 秒后再执行回调，如果在这 <code>n</code> 秒内事件又被触发，则重新计时。</u></p>
+<p><img src="https://s2.loli.net/2022/05/26/EVGaOcHu98ixPdF.png"></p>
+<p><strong>好处：</strong>能够保证用户在频繁触发某些事件的时候，不会频繁的执行回调，只会被执行一次</p>
+<h3 id="防抖的应用场景"><a href="#防抖的应用场景" class="headerlink" title="防抖的应用场景"></a>防抖的应用场景</h3><p>用户在输入框中连续输入一串字符时，可以通过防抖策略，只在输入完后，才执行查询的请求，这样可以有效减</p>
+<p>少请求次数，节约请求资源；</p>
+<h3 id="实现输入框的防抖"><a href="#实现输入框的防抖" class="headerlink" title="实现输入框的防抖"></a>实现输入框的防抖</h3><ul>
+<li>防抖动的 timer</li>
+<li>定义防抖的函数，函数里面定义一个延时器，在演示器里面调用发起<code>JSONP</code>的请求</li>
+<li>在触发 <code>keyup</code> 事件时，立即清空 <code>timer</code>，然后调用防抖的函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span> <span class="comment">// 1. 防抖动的 timer</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounceSearch</span>(<span class="params">keywords</span>) &#123; <span class="comment">// 2. 定义防抖的函数</span></span><br><span class="line">     timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// 发起 JSONP 请求</span></span><br><span class="line">     <span class="title function_">getSuggestList</span>(keywords)</span><br><span class="line">     &#125;, <span class="number">500</span>)</span><br><span class="line"> &#125;</span><br><span class="line">$(<span class="string">&#x27;#ipt&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">// 3. 在触发 keyup 事件时，立即清空 timer</span></span><br><span class="line"> <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"> <span class="comment">// ...省略其他代码</span></span><br><span class="line"> <span class="title function_">debounceSearch</span>(keywords)</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存搜索的建议列表"><a href="#缓存搜索的建议列表" class="headerlink" title="缓存搜索的建议列表"></a>缓存搜索的建议列表</h3><h4 id="定义全局缓存对象"><a href="#定义全局缓存对象" class="headerlink" title="定义全局缓存对象"></a>定义全局缓存对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缓存对象</span></span><br><span class="line"><span class="keyword">var</span> cacheObj = &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="将搜索结果保存到缓存对象中"><a href="#将搜索结果保存到缓存对象中" class="headerlink" title="将搜索结果保存到缓存对象中"></a>将搜索结果保存到缓存对象中</h4><ul>
+<li>键就是用户输入的关键字，值就是服务器返回的value</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 渲染建议列表</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">renderSuggestList</span>(<span class="params">res</span>) &#123;</span><br><span class="line">     <span class="comment">// ...省略其他代码</span></span><br><span class="line">     <span class="comment">// 将搜索的结果，添加到缓存对象中</span></span><br><span class="line">     <span class="keyword">var</span> k = $(<span class="string">&#x27;#ipt&#x27;</span>).<span class="title function_">val</span>().<span class="title function_">trim</span>()</span><br><span class="line">     cacheObj[k] = res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="优先从缓存中获取搜索建议"><a href="#优先从缓存中获取搜索建议" class="headerlink" title="优先从缓存中获取搜索建议"></a>优先从缓存中获取搜索建议</h4><ul>
+<li>在发起请求之前，先判断缓存中是否有数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听文本框的 keyup 事件</span></span><br><span class="line">$(<span class="string">&#x27;#ipt&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// ...省略其他代码</span></span><br><span class="line">     <span class="comment">// 优先从缓存中获取搜索建议</span></span><br><span class="line">     <span class="keyword">if</span> (cacheObj[keywords]) &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="title function_">renderSuggestList</span>(cacheObj[keywords])</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 获取搜索建议列表</span></span><br><span class="line">     <span class="title function_">debounceSearch</span>(keywords)</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="节流⭐⭐⭐"><a href="#节流⭐⭐⭐" class="headerlink" title="节流⭐⭐⭐"></a>节流⭐⭐⭐</h2><h3 id="什么是节流-⭐⭐⭐"><a href="#什么是节流-⭐⭐⭐" class="headerlink" title="什么是节流(⭐⭐⭐)"></a>什么是节流(⭐⭐⭐)</h3><p><strong>节流策略</strong>（<code>throttle</code>），顾名思义，可以减少一段时间内事件的触发频率。</p>
+<p><img src="https://s2.loli.net/2022/05/26/1q9MkmNPKHrS4Du.png"></p>
+<h3 id="节流的应用场景"><a href="#节流的应用场景" class="headerlink" title="节流的应用场景"></a>节流的应用场景</h3><p>① 鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次；</p>
+<p>② 懒加载时要监听计算滚动条的位置，但不必每次滑动都触发，可以降低计算的频率，而不必去浪费 CPU 资源；</p>
+<h3 id="节流案例-–-鼠标跟随效果"><a href="#节流案例-–-鼠标跟随效果" class="headerlink" title="节流案例 – 鼠标跟随效果"></a><strong>节流案例</strong> <strong>–</strong> 鼠标跟随效果</h3><h4 id="UI效果"><a href="#UI效果" class="headerlink" title="UI效果"></a><code>UI</code>效果</h4><p><img src="https://s2.loli.net/2022/05/26/NL1StwYzvW2VIKs.png"></p>
+<h4 id="渲染UI结构并美化样式"><a href="#渲染UI结构并美化样式" class="headerlink" title="渲染UI结构并美化样式"></a>渲染<code>UI</code>结构并美化样式</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- UI 结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./assets/angel.gif&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;angel&quot;</span> /&gt;</span></span><br><span class="line">/* CSS 样式 */</span><br><span class="line">html, body &#123;</span><br><span class="line"> margin: 0;</span><br><span class="line"> padding: 0;</span><br><span class="line"> overflow: hidden; &#125;</span><br><span class="line">#angel &#123;</span><br><span class="line"> position: absolute; &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="不使用节流时实现鼠标跟随效果"><a href="#不使用节流时实现鼠标跟随效果" class="headerlink" title="不使用节流时实现鼠标跟随效果"></a>不使用节流时实现鼠标跟随效果</h4><ul>
+<li>获取图片元素</li>
+<li>注册 <code>mousemove</code>事件</li>
+<li>设置图片的位置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="comment">// 获取图片元素</span></span><br><span class="line">     <span class="keyword">var</span> angel = $(<span class="string">&#x27;#angel&#x27;</span>)</span><br><span class="line">     <span class="comment">// 监听文档的 mousemove 事件</span></span><br><span class="line">     $(<span class="variable language_">document</span>).<span class="title function_">on</span>(<span class="string">&#x27;mousemove&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">     <span class="comment">// 设置图片的位置</span></span><br><span class="line">     $(angel).<span class="title function_">css</span>(<span class="string">&#x27;left&#x27;</span>, e.<span class="property">pageX</span> + <span class="string">&#x27;px&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;top&#x27;</span>, e.<span class="property">pageY</span> + <span class="string">&#x27;px&#x27;</span>)</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="节流阀的概念"><a href="#节流阀的概念" class="headerlink" title="节流阀的概念"></a>节流阀的概念</h4><p>高铁卫生间是否被占用，由红绿灯控制，红灯表示被占用，绿灯表示可使用。</p>
+<p>假设每个人上卫生间都需要花费5分钟，则五分钟之内，被占用的卫生间无法被其他人使用。</p>
+<p>上一个人使用完毕后，需要将红灯<strong>重置</strong>为绿灯，表示下一个人可以使用卫生间。</p>
+<p>下一个人在上卫生间之前，需要<strong>先判断控制灯</strong>是否为绿色，来知晓能否上卫生间。</p>
+<p>节流阀为空，表示可以执行下次操作；不为空，表示不能执行下次操作。</p>
+<p>当前操作执行完，必须将节流阀<strong>重置</strong>为空，表示可以执行下次操作了。</p>
+<p>每次执行操作前，必须<strong>先判断节流阀是否为空</strong>。</p>
+<h4 id="使用节流优化鼠标跟随效果"><a href="#使用节流优化鼠标跟随效果" class="headerlink" title="使用节流优化鼠标跟随效果"></a>使用节流优化鼠标跟随效果</h4><ul>
+<li>预定义一个 timer <strong>节流阀</strong></li>
+<li>当设置了鼠标跟随效果后，<strong>清空</strong> <strong>timer</strong> <strong>节流阀</strong>，方便下次开启延时器</li>
+<li>执行事件的时候判断<strong>节流阀</strong>是否为空，如果不为空，则证明距离上次执行间隔不足16毫秒</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> angel = $(<span class="string">&#x27;#angel&#x27;</span>)</span><br><span class="line">     <span class="keyword">var</span> timer = <span class="literal">null</span> <span class="comment">// 1.预定义一个 timer 节流阀</span></span><br><span class="line">     $(<span class="variable language_">document</span>).<span class="title function_">on</span>(<span class="string">&#x27;mousemove&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">     <span class="keyword">if</span> (timer) &#123; <span class="keyword">return</span> &#125; <span class="comment">// 3.判断节流阀是否为空，如果不为空，则证明距离上次执行间隔不足16毫秒</span></span><br><span class="line">     timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     $(angel).<span class="title function_">css</span>(<span class="string">&#x27;left&#x27;</span>, e.<span class="property">pageX</span> + <span class="string">&#x27;px&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;top&#x27;</span>, e.<span class="property">pageY</span> + <span class="string">&#x27;px&#x27;</span>)</span><br><span class="line">     timer = <span class="literal">null</span> <span class="comment">// 2.当设置了鼠标跟随效果后，清空 timer 节流阀，方便下次开启延时器</span></span><br><span class="line">     &#125;, <span class="number">16</span>)</span><br><span class="line">     &#125;)        <span class="comment">//1.事件外 定义一个 flag =null  2.在事件里判断为空就执行 不为空(事件还没有执行完) 就返回 </span></span><br><span class="line">&#125;)             <span class="comment">// 3.事件执行完改为flag=null,事件没有执行完flag一直不为空</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结防抖和节流的区别"><a href="#总结防抖和节流的区别" class="headerlink" title="总结防抖和节流的区别"></a>总结防抖和节流的区别</h2><ul>
+<li><p><strong>防抖</strong>：如果事件被频繁触发，防抖能保证只有最后一次触发生效！前面 N 多次的触发都会被忽略！</p>
+</li>
+<li><p><strong>节流</strong>：如果事件被频繁触发，节流能够减少事件触发的频率，因此，节流是有选择性地执行一部分事件！</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/19/08-ajax-01/" class="archive-article-date">
-  	<time datetime="2022-05-19T15:10:17.737Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/19/08-ajax-01/">ajax-01</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ajax-01</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ajax-04</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/26/15-ajax-04/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/11/07-let%E3%80%81const%E3%80%81var%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2022-05-11T10:56:28.875Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-11</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/05/26/16-ajax-05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ajax-05
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/26/14-ajax-03/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ajax03</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/11/07-let%E3%80%81const%E3%80%81var%E7%9A%84%E5%8C%BA%E5%88%AB/">let、const、var的区别</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">let、const、var的区别</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/09/03-%E6%89%8B%E5%86%99new%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2022-05-09T07:04:06.531Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/09/03-%E6%89%8B%E5%86%99new%E5%AE%9E%E7%8E%B0/">手写一个new</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">手写一个new</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/08/05-%E8%AE%B0%E5%BF%86%E7%A2%8E%E7%89%87/" class="archive-article-date">
-  	<time datetime="2022-05-08T13:08:31.578Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/08/05-%E8%AE%B0%E5%BF%86%E7%A2%8E%E7%89%87/">记忆碎片</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">记忆碎片</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/07/01-%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2022-05-07T14:18:01.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/07/01-%E8%B5%B5%E4%B8%BD%E9%A2%96%EF%BC%9A%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%85%8D%E4%B8%8D%E9%85%8D%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89%E4%BA%86%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E5%80%BC%E5%BE%97%E7%9A%84%EF%BC%81/">赵丽颖：没有什么配不配，你的努力发光了，你就是值得的！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">赵丽颖</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/05/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/05/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -387,8 +484,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
